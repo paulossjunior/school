@@ -1,0 +1,33 @@
+Configuration {
+    software: "school"
+    about: "A Webservice about school"
+    package_path: "br.nemo.immigrant.ontology"
+    database_name: "school"
+    framework: "springdata"
+}
+# "Module responsible for managing a school's entities"
+module school{
+
+    abstract entity Person {
+        name: string
+        birthdate: date
+        
+    }
+    # "Represents a Student"
+    entity Student extends Person{
+        enrollmentDate: date
+        studies OneToMany Course
+    }
+    
+    # "Represents a Teacher"
+    entity Teacher extends Person{
+        hiringDate: date
+        teaches OneToMany Course
+    }
+
+    # "Represents a Course"
+    entity Course {
+        name: string 
+        code: string 
+    }
+}

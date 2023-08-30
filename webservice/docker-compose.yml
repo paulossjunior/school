@@ -1,0 +1,13 @@
+version: '3.9'
+services:
+  ontology_service:
+    container_name: ontology_school_service
+    build: .
+    image: registry.gitlab.com/immigrant-data-driven-development/services/school
+    ports:
+      - "8080:8080"
+networks:
+  default:
+    name: base-infrastrutrure
+    external: true
+

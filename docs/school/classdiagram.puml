@@ -1,0 +1,41 @@
+@startuml school
+
+    class Person {
+    string: name
+    date: birthdate
+
+    }
+
+
+
+    class Student {
+    date: enrollmentDate
+
+    Course: studies
+    }
+
+    Person <|-- Student
+
+
+    Student "1" -- "0..*" Course : studies >
+
+    class Teacher {
+    date: hiringDate
+
+    Course: teaches
+    }
+
+    Person <|-- Teacher
+
+
+    Teacher "1" -- "0..*" Course : teaches >
+
+    class Course {
+    string: name
+    string: code
+
+    }
+
+
+
+@enduml

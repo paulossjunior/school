@@ -1,0 +1,10 @@
+alter table if exists course drop constraint if exists FKs8aqr642dup1oio7xa51t5vw5;
+alter table if exists course drop constraint if exists FKsybhlxoejr4j3teomm5u2bx1n;
+drop table if exists course cascade;
+drop table if exists student cascade;
+drop table if exists teacher cascade;
+create table course (created_at timestamp(6), id bigserial not null, student_id bigint, teacher_id bigint, code varchar(255), name varchar(255), primary key (id));
+create table student (birthdate date, enrollment_date date, created_at timestamp(6), id bigserial not null, name varchar(255), primary key (id));
+create table teacher (birthdate date, hiring_date date, created_at timestamp(6), id bigserial not null, name varchar(255), primary key (id));
+alter table if exists course add constraint FKs8aqr642dup1oio7xa51t5vw5 foreign key (student_id) references student;
+alter table if exists course add constraint FKsybhlxoejr4j3teomm5u2bx1n foreign key (teacher_id) references teacher;

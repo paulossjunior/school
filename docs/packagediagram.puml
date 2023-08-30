@@ -1,0 +1,3 @@
+@startuml school
+namespace school{}
+@enduml

@@ -1,0 +1,67 @@
+
+
+type Student{
+    id: ID!
+    enrollmentDate:String!
+    name:String!
+    birthdate:String!
+}
+
+type Teacher{
+    id: ID!
+    hiringDate:String!
+    name:String!
+    birthdate:String!
+}
+
+type Course{
+    id: ID!
+    name:String!
+    code:String!
+}
+
+
+
+input StudentInput{
+  enrollmentDate:String!
+  name:String!
+  birthdate:String!
+}
+
+input TeacherInput{
+  hiringDate:String!
+  name:String!
+  birthdate:String!
+}
+
+input CourseInput{
+  name:String!
+  code:String!
+}
+
+
+type Query{
+
+  findAllStudents:[Student]
+  findAllTeachers:[Teacher]
+  findAllCourses:[Course]
+
+  findByIDStudent (id: ID!):Student
+  findByIDTeacher (id: ID!):Teacher
+  findByIDCourse (id: ID!):Course
+}
+
+type Mutation{
+
+  createStudent(input: StudentInput):Student
+  createTeacher(input: TeacherInput):Teacher
+  createCourse(input: CourseInput):Course
+
+  deleteStudent (id: ID!):Student
+  deleteTeacher (id: ID!):Teacher
+  deleteCourse (id: ID!):Course
+
+  updateStudent (id: ID!, input: StudentInput):Student
+  updateTeacher (id: ID!, input: TeacherInput):Teacher
+  updateCourse (id: ID!, input: CourseInput):Course
+}
